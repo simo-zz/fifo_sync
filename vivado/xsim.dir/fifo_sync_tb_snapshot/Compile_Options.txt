@@ -1,0 +1,1 @@
+--nolog -debug "all" -top "fifo_sync_tb" -snapshot "fifo_sync_tb_snapshot" 
