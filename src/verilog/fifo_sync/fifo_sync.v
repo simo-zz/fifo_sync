@@ -1,11 +1,13 @@
+`timescale 1ns/1ps
+
 module fifo_sync 
     #(
         parameter DATA_WIDTH = 32,
         parameter ADDR_BITS = 4
     )
     (
-        input wire resetn_i,
-        input wire clk_i,
+        (* direct_reset = "true" *) input wire resetn_i,
+        (* direct_enable = "true" *) input wire clk_i,
         input wire [DATA_WIDTH-1:0] data_in,
         output wire [DATA_WIDTH-1:0] data_out,
         input wire w_en,

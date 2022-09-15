@@ -2,12 +2,6 @@
 
 module fifo_sync_tb();
 
-    reg reset_r, clk_r, w_en_r, r_en_r;
-    wire fifo_full_w, fifo_empty_w;
-
-    reg [DATA_WIDTH-1:0] data_in_r;
-    wire [DATA_WIDTH-1:0] data_out_w;
-
     localparam DATA_WIDTH = 8;
     localparam ADDR_BITS = 4;
     localparam N_REGS = 2**ADDR_BITS;
@@ -17,7 +11,12 @@ module fifo_sync_tb();
                 W_NONE_R_ALWAYS = 2,
                 WR_NOT_ALIGNED = 3;
 
-    integer test_type = W_ALWAYS_R_DELAYED;
+    integer test_type = RW_ALWAYS;
+
+    reg reset_r, clk_r, w_en_r, r_en_r;
+    wire fifo_full_w, fifo_empty_w;
+    reg [DATA_WIDTH-1:0] data_in_r;
+    wire [DATA_WIDTH-1:0] data_out_w;
 
     real r_delay = 2;
     real w_delay = 6;
@@ -55,7 +54,7 @@ module fifo_sync_tb();
         end
         else if (test_type == W_ALWAYS_R_DELAYED) begin
             $display("W_ALWAYS_R_DELAYED");
-            #1 w_en_r <= 1; #r_delay r_en_r <= 1;
+            #1 w_en_r <= 1; r_en_r <= 1;
             #100 ;
         end
         else if (test_type == W_NONE_R_ALWAYS) begin
@@ -73,7 +72,7 @@ module fifo_sync_tb();
         end
 
         #1 w_en_r <= 0; r_en_r <= 0;
-        #1 $finish; // $fclose(fp); 
+        #50 $finish; // $fclose(fp); 
 
     end
 
