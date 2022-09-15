@@ -48,7 +48,7 @@ module fifo_sync_tb();
 
         if (test_type == RW_ALWAYS) begin
             $display("RW_ALWAYS");
-            #1 w_en_r <= 1; #r_delay r_en_r <= 1;
+            #1 w_en_r <= 1; r_en_r <= 1;
             #100 ;
         end
         else if (test_type == W_ALWAYS_R_DELAYED) begin
