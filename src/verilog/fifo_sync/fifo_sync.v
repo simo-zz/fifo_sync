@@ -1,5 +1,5 @@
 module fifo_sync 
-	#(
+    #(
         parameter DATA_WIDTH = 32,
         parameter ADDR_BITS = 4
     )
