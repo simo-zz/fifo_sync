@@ -5,8 +5,12 @@ SYSTEM_VERILOG_SRC_DIR = $(SRC_DIR)"system_verilog"
 SOURCES_V := $(shell find $(VERILOG_SRC_DIR) -name '*.v')
 SOURCES_SV := $(shell find $(SYSTEM_VERILOG_SRC_DIR) -name '*.sv')
 
-OPTS_SV := --incr --relax
+COMP_OPTS_SV := \
+    --incr \
+    --relax \
+
 DEFINES_SV :=
+COMP_OPTS_VHDL := --incr --relax
 
 TB_TOP := $(basename $(notdir $(shell find $(VERILOG_SRC_DIR) -name '*_tb')))
 
@@ -14,60 +18,53 @@ TB_TOP := $(basename $(notdir $(shell find $(VERILOG_SRC_DIR) -name '*_tb')))
 
 all: clean simulate elaborate compile waves
 
-.PHONY : simulate
 simulate : $(TB_TOP)_snapshot.wdb
-
-elaborate : .elab_timestamp
-compile : .sv_timestamp .v_timestamp 
+elaborate : .elab.timestamp
+compile : .comp_sv.timestamp .comp_v.timestamp 
 
 waves : $(TB_TOP)_snapshot.wdb
 	@echo
-	@echo "### OPENING WAVES ###"
+	@echo "Opening waves view"
 	xsim --nolog --gui $(TB_TOP)_snapshot.wdb 2>/dev/null &
 
-$(TB_TOP)_snapshot.wdb : .elab_timestamp
+$(TB_TOP)_snapshot.wdb : .elab.timestamp
 	@echo
-	@echo "### RUNNING SIMULATION ###"
-	xsim --nolog $(TB_TOP)_snapshot -tcl xsim_cfg.tcl
+	@echo "Running behavioral simulation"
+	xsim --nolog $(TB_TOP)_snapshot -tclbatch xsim_cfg.tcl
 
-.elab_timestamp : .sv_timestamp .v_timestamp 
+.elab.timestamp : .comp_sv.timestamp .comp_v.timestamp 
 	@echo
-	@echo "### ELABORATING ###"
+	@echo "Running elaboration"
 	xelab --nolog -debug all -top $(TB_TOP) -snapshot $(TB_TOP)_snapshot
-	touch .elab_timestamp
+	touch .elab.timestamp
 
+#==== COMPILING SYSTEMVERILOG ====#
 ifeq ($(SOURCES_SV),)
-.sv_timestamp :
+.comp_sv.timestamp:
 	@echo "No System Verilog files found, skipping"
-	touch .sv_timestamp
+	touch .comp_sv.timestamp
 else
-.sv_timestamp : $(SOURCES_SV) .sub_$(SUB)_timestamp
+.comp_sv.timestamp: $(SOURCES_SV)
 	@echo
 	@echo "Compiling System Verilog sources"
-	xvlog --nolog --sv $(OPTS_SV) $(DEFINES_SV) $(SOURCES_SV)
-	touch .sv_timestamp
+	xvlog --nolog --sv $(SV_OPTIONS) $(SV_DEFINES) $(SOURCES_SV)
+	touch .comp_sv.timestamp
 endif
 
 #==== COMPILING VERILOG ====#
 ifeq ($(SOURCES_V),)
-.v_timestamp :
+.comp_v.timestamp :
 	@echo "No Verilog files found, skipping"
-	touch .v_timestamp
+	touch .comp_v.timestamp
 else
-.v_timestamp : $(SOURCES_V)
-	@echo
+.comp_v.timestamp : $(SOURCES_V)
 	@echo "Compiling Verilog sources"
-	xvlog --nolog $(OPTS_V) $(DEFINES_V) $(SOURCES_V)
-	touch .v_timestamp
+	xvlog --nolog $(COMP_OPTS_V) $(DEFINES_V) $(SOURCES_V)
+	touch .comp_v.timestamp
 endif
 
-clean:
-	rm -rf *.jou *.log *.pb *.wdb xsim.dir
-	rm -rf .*_timestamp
+clean :
+	rm -rf *.jou *.log *.pb *.wdb xsim.dir *.vcd
+	rm -rf .*.timestamp
 	rm -rf .Xil
 	rm -fr vivado_pid*.str
-
-#==== Subtractor type marker generation ===#
-.sub_$(SUB)_timestamp :
-	@rm -rf .sub_*_timestamp
-	@touch .sub_$(SUB)_timestamp
