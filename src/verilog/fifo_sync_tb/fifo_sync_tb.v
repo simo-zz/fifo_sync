@@ -38,7 +38,6 @@ module fifo_sync_tb();
     integer i, fp;
     initial
     begin
-        // fp = $fopen("fifo_sync_tb.csv", "w");
         $dumpfile("fifo_sync_tb.vcd");
         $dumpvars(0, fifo_sync_tb);
         for (i = 0; i < N_REGS; i = i + 1)
@@ -72,7 +71,7 @@ module fifo_sync_tb();
         end
 
         #1 w_en_r <= 0; r_en_r <= 0;
-        #50 $finish; // $fclose(fp); 
+        #50 $finish;
 
     end
 
@@ -84,8 +83,7 @@ module fifo_sync_tb();
     always @(posedge clk_r)
     begin
         data_in_r <= $urandom%255;
-        $display("fifo_sync_inst.w_en_r = %1b, fifo_sync_inst.w_ptr_r = %02d, data_in_r = %02d, fifo_sync_inst.r_en_r = %1b, fifo_sync_inst.r_ptr_r,= %02d, data_out_w = %02d", fifo_sync_inst.w_en_r, fifo_sync_inst.w_ptr_r, data_in_r, fifo_sync_inst.r_en_r, fifo_sync_inst.r_ptr_r, data_out_w);        
-        // $fwrite(fp, "%1b,%02d,%02d,%1b,%02d,%02d\n", fifo_sync_inst.w_en_r, fifo_sync_inst.w_ptr_r, data_in_r, fifo_sync_inst.r_en_r, fifo_sync_inst.r_ptr_r, data_out_w);        
+        $display("fifo_sync_inst.w_en_r = %1b, fifo_sync_inst.w_ptr_r = %02d, data_in_r = %02d, fifo_sync_inst.r_en_r = %1b, fifo_sync_inst.r_ptr_r,= %02d, data_out_w = %02d", fifo_sync_inst.w_en_r, fifo_sync_inst.w_ptr_r, data_in_r, fifo_sync_inst.r_en_r, fifo_sync_inst.r_ptr_r, data_out_w);
     end
 
 endmodule
