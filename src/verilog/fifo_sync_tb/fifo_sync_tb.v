@@ -8,8 +8,7 @@ module fifo_sync_tb();
 
     localparam  RW_ALWAYS = 0,
                 W_ALWAYS_R_DELAYED = 1,
-                W_NONE_R_ALWAYS = 2,
-                WR_NOT_ALIGNED = 3;
+                W_NONE_R_ALWAYS = 2;
 
     integer test_type = RW_ALWAYS;
 
@@ -59,14 +58,6 @@ module fifo_sync_tb();
         else if (test_type == W_NONE_R_ALWAYS) begin
             $display("W_NONE_R_ALWAYS");
             #1 r_en_r <= 1;
-            #100 ;
-        end
-        else if (test_type == WR_NOT_ALIGNED) begin
-            $display("WR_NOT_ALIGNED");
-            #1 w_en_r <= 1; #r_delay r_en_r <= 1; 
-            #w_delay w_en_r <= ~w_en_r; #r_delay r_en_r <= ~r_en_r; r_delay = $urandom%16; w_delay = $urandom%16;
-            #w_delay w_en_r <= ~w_en_r; #r_delay r_en_r <= ~r_en_r; r_delay = $urandom%16; w_delay = $urandom%16;
-            #w_delay w_en_r <= ~w_en_r; #r_delay r_en_r <= ~r_en_r; r_delay = $urandom%16; w_delay = $urandom%16;
             #100 ;
         end
 
