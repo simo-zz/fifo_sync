@@ -38,7 +38,6 @@ $(TB_TOP)_snapshot.wdb : .elab.timestamp
 	xelab --nolog -debug all -top $(TB_TOP) -snapshot $(TB_TOP)_snapshot
 	touch .elab.timestamp
 
-#==== COMPILING SYSTEMVERILOG ====#
 ifeq ($(SOURCES_SV),)
 .comp_sv.timestamp:
 	@echo "No System Verilog files found, skipping"
@@ -51,7 +50,6 @@ else
 	touch .comp_sv.timestamp
 endif
 
-#==== COMPILING VERILOG ====#
 ifeq ($(SOURCES_V),)
 .comp_v.timestamp :
 	@echo "No Verilog files found, skipping"
