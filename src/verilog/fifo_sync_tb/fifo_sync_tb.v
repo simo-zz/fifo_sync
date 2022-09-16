@@ -10,7 +10,7 @@ module fifo_sync_tb();
                 W_ALWAYS_R_DELAYED = 1,
                 W_NONE_R_ALWAYS = 2;
 
-    integer test_type = RW_ALWAYS;
+    integer test_type = W_ALWAYS_R_DELAYED;
 
     reg reset_r, clk_r, w_en_r, r_en_r;
     wire fifo_full_w, fifo_empty_w;
@@ -52,7 +52,7 @@ module fifo_sync_tb();
         end
         else if (test_type == W_ALWAYS_R_DELAYED) begin
             $display("W_ALWAYS_R_DELAYED");
-            #1 w_en_r <= 1; r_en_r <= 1;
+            #1 w_en_r <= 1; #r_delay r_en_r <= 1;
             #100 ;
         end
         else if (test_type == W_NONE_R_ALWAYS) begin
