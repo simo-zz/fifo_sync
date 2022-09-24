@@ -29,7 +29,6 @@ module fifo_sync
     assign w_overflow = w_ptr_overflow;
     assign fifo_empty = (w_ptr_r == r_ptr_r);
     assign fifo_full = (! w_ptr_overflow) ? ((w_ptr_r == (N_REGS - 1)) && (!r_ptr_r)) : (w_ptr_r == (r_ptr_r - 1));
-    
     assign data_out = (r_en_r) ? fifo_mem_reg[r_ptr_r] : {{DATA_WIDTH}{1'b0}};
 
     always @(posedge clk_i)
