@@ -8,10 +8,9 @@ module fifo_sync_tb();
 
     localparam  RW_ALWAYS = 0,
                 W_ALWAYS_R_DELAYED = 1,
-                W_NONE_R_ALWAYS = 2,
-                W_OVERFLOW_FIFO_FULL = 3;
+                W_NONE_R_ALWAYS = 2;
 
-    integer test_type = W_OVERFLOW_FIFO_FULL;
+    integer test_type = W_ALWAYS_R_DELAYED;
 
     reg reset_r, clk_r, w_en_r, r_en_r;
     wire fifo_full_w, fifo_empty_w;
@@ -59,14 +58,6 @@ module fifo_sync_tb();
         else if (test_type == W_NONE_R_ALWAYS) begin
             $display("W_NONE_R_ALWAYS");
             #1 r_en_r <= 1;
-            #100 ;
-        end
-        else if (test_type == W_OVERFLOW_FIFO_FULL) begin
-            $display("W_NONE_R_ALWAYS");
-            #1 w_en_r <= 1; #r_delay r_en_r <= 1;
-            #17 r_en_r <= 0;
-            #18 w_en_r <= 0;
-            #20 r_en_r <= 1;
             #100 ;
         end
 
