@@ -60,6 +60,14 @@ module fifo_sync_tb();
             #1 r_en_r <= 1;
             #100 ;
         end
+        else if (test_type == W_OVERFLOW_FIFO_FULL) begin
+            $display("W_OVERFLOW_FIFO_FULL");
+            #1 w_en_r <= 1; r_en_r <= 1;
+            #12 r_en_r <= 0;
+            #21 r_en_r <= 1;
+            #10 w_en_r <= 0;
+            #100 ;
+        end
 
         #1 w_en_r <= 0; r_en_r <= 0;
         #50 $finish;
