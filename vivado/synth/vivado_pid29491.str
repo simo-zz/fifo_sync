@@ -1,0 +1,236 @@
+/*
+
+Xilinx Vivado v2019.2 (64-bit) [Major: 2019, Minor: 2]
+SW Build: 2708876 on Wed Nov  6 21:39:14 MST 2019
+IP Build: 2700528 on Thu Nov  7 00:09:20 MST 2019
+
+Process ID (PID): 29491
+License: Customer
+
+Current time: 	Sat Sep 24 17:52:04 CEST 2022
+Time zone: 	Central European Standard Time (Europe/Madrid)
+
+OS: PRETTY_NAME="Debian GNU/Linux 10 (buster)"
+OS Version: 4.19.0-8-amd64
+OS Architecture: amd64
+Available processors (cores): 8
+
+Display: :0.0
+Screen size: 1366x768
+Screen resolution (DPI): 100
+Available screens: 1
+Available disk space: 6 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	9.0.4 64-bit
+Java home: 	/opt/Xilinx/Vivado/2019.2/tps/lnx64/jre9.0.4
+Java executable location: 	/opt/Xilinx/Vivado/2019.2/tps/lnx64/jre9.0.4/bin/java
+Java initial memory (-Xms): 	128 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	simo
+User home directory: /home/simo
+User working directory: /customdevs/verilog/fifo_sync.github/vivado/synth
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /opt/Xilinx/Vivado
+HDI_APPROOT: /opt/Xilinx/Vivado/2019.2
+RDI_DATADIR: /opt/Xilinx/Vivado/2019.2/data
+RDI_BINDIR: /opt/Xilinx/Vivado/2019.2/bin
+
+Vivado preferences file location: /home/simo/.Xilinx/Vivado/2019.2/vivado.xml
+Vivado preferences directory: /home/simo/.Xilinx/Vivado/2019.2/
+Vivado layouts directory: /home/simo/.Xilinx/Vivado/2019.2/layouts
+PlanAhead jar file location: 	/opt/Xilinx/Vivado/2019.2/lib/classes/planAhead.jar
+Vivado log file location: 	
+Vivado journal file location: 	
+Engine tmp dir: 	./.Xil/Vivado-29491-simodev
+
+Xilinx Environment Variables
+----------------------------
+XILINX: /opt/Xilinx/Vivado/2019.2/ids_lite/ISE
+XILINXD_LICENSE_FILE: 2100@192.168.16.18
+XILINX_DSP: /opt/Xilinx/Vivado/2019.2/ids_lite/ISE
+XILINX_PLANAHEAD: /opt/Xilinx/Vivado/2019.2
+XILINX_SDK: /opt/Xilinx/Vitis/2019.2
+XILINX_VITIS: /opt/Xilinx/Vitis/2019.2
+XILINX_VIVADO: /opt/Xilinx/Vivado/2019.2
+XILINX_VIVADO_HLS: /opt/Xilinx/Vivado/2019.2
+
+
+GUI allocated memory:	351 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 3,886 MB
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// [GUI Memory]: 78 MB (+78799kb) [00:00:02]
+// [Engine Memory]: 3,574 MB (+3596532kb) [00:00:02]
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// Xgd.load filename: /opt/Xilinx/Vivado/2019.2/data/parts/xilinx/zynquplus/devint/zynquplus/xczu3eg/xczu3eg.xgd; ZipEntry: xczu3eg_detail.xgd elapsed time: 0.8s
+// [GUI Memory]: 139 MB (+59984kb) [00:00:03]
+// [Engine Memory]: 3,773 MB (+20605kb) [00:00:06]
+// Device: addNotify
+// [GUI Memory]: 152 MB (+6544kb) [00:00:06]
+// DeviceView Instantiated
+// TclEventType: START_PROGRESS_DIALOG
+// Tcl Message: Sourcing tcl script '/opt/Xilinx/Vivado/2019.2/scripts/Vivado_init.tcl' 
+// Tcl Message: source synth.tcl 
+// Tcl Message: # set vsource [lindex $argv 0] # set top_name [lindex $argv 1] # set fpga_part [lindex $argv 2] # set output_dir [lindex $argv 3] # read_verilog ${vsource} 
+// Tcl Message: INFO: [Project 1-571] Translating synthesized netlist 
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2520.742 ; gain = 0.000 ; free physical = 8204 ; free virtual = 25586 
+// Tcl Message: INFO: [Netlist 29-17] Analyzing 69 Unisim elements for replacement INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds INFO: [Project 1-570] Preparing netlist for logic optimization INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s). 
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2576.762 ; gain = 0.000 ; free physical = 8135 ; free virtual = 25518 
+// Tcl Message: INFO: [Project 1-111] Unisim Transformation Summary:   A total of 37 instances were transformed.   BUFG => BUFGCE: 1 instance    IBUF => IBUF (IBUFCTRL, INBUF): 36 instances  INFO: [Common 17-83] Releasing license: Synthesis 
+// Tcl Message: 14 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered. synth_design completed successfully 
+// Tcl Message: synth_design: Time (s): cpu = 00:00:21 ; elapsed = 00:01:16 . Memory (MB): peak = 2576.762 ; gain = 1091.641 ; free physical = 8270 ; free virtual = 25652 
+// Tcl Message: # write_verilog ${output_dir}/${top_name}.v # report_datasheet -file ${output_dir}/datasheet.txt 
+// Tcl Message: INFO: [Timing 38-35] Done setting XDC timing constraints. INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max. INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs 
+// Tcl Message: report_datasheet: Time (s): cpu = 00:00:32 ; elapsed = 00:00:47 . Memory (MB): peak = 4239.117 ; gain = 1662.355 ; free physical = 7001 ; free virtual = 24376 
+// Tcl Message: # report_utilization -file ${output_dir}/utilization.txt # report_timing_summary -file ${output_dir}/timing_summary.txt 
+// Tcl Message: INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Temperature grade: I, Delay Type: min_max. INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs 
+// Tcl Message: # start_gui 
+// Tcl Message: # synth_design -top ${top_name} -part ${fpga_part} 
+// Tcl Message: Command: synth_design -top fifo_sync -part xczu3eg-sfva625-1-i Starting synth_design Attempting to get a license for feature 'Synthesis' and/or device 'xczu3eg' 
+// Tcl Message: INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu3eg' 
+// Tcl Message: INFO: Launching helper process for spawning children vivado processes INFO: Helper process launched with PID 29501  --------------------------------------------------------------------------------- 
+// Tcl Message: Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1723.621 ; gain = 214.414 ; free physical = 8740 ; free virtual = 26119 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'fifo_sync' [/customdevs/verilog/fifo_sync.github/src/verilog/fifo_sync/fifo_sync.v:3] 
+// Tcl Message: 	Parameter DATA_WIDTH bound to: 32 - type: integer  	Parameter ADDR_BITS bound to: 4 - type: integer  	Parameter N_REGS bound to: 16 - type: integer  
+// Tcl Message: INFO: [Synth 8-5534] Detected attribute (* direct_reset = "true" *) [/customdevs/verilog/fifo_sync.github/src/verilog/fifo_sync/fifo_sync.v:9] INFO: [Synth 8-5534] Detected attribute (* direct_enable = "true" *) [/customdevs/verilog/fifo_sync.github/src/verilog/fifo_sync/fifo_sync.v:10] INFO: [Synth 8-6155] done synthesizing module 'fifo_sync' (1#1) [/customdevs/verilog/fifo_sync.github/src/verilog/fifo_sync/fifo_sync.v:3] 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Finished Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1786.371 ; gain = 277.164 ; free physical = 8755 ; free virtual = 26136 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Finished Constraint Validation : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1786.371 ; gain = 277.164 ; free physical = 8748 ; free virtual = 26133 
+// Tcl Message: --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- Start Loading Part and Timing Information --------------------------------------------------------------------------------- Loading part: xczu3eg-sfva625-1-i 
+// Tcl Message: INFO: [Synth 8-6742] Reading net delay rules and data 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: INFO: [Device 21-403] Loading part xczu3eg-sfva625-1-i 
+// Tcl Message: Finished Loading Part and Timing Information : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1806.281 ; gain = 297.074 ; free physical = 8746 ; free virtual = 26131 
+// Tcl Message: --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1814.289 ; gain = 305.082 ; free physical = 8736 ; free virtual = 26121 
+// Tcl Message: ---------------------------------------------------------------------------------  Report RTL Partitions:  +-+--------------+------------+----------+ | |RTL Partition |Replication |Instances | +-+--------------+------------+----------+ +-+--------------+------------+----------+ 
+// Tcl Message: No constraint files found. 
+// Tcl Message: No constraint files found. 
+// Tcl Message: --------------------------------------------------------------------------------- Start Cross Boundary and Area Optimization --------------------------------------------------------------------------------- Warning: Parallel synthesis criteria is not met  --------------------------------------------------------------------------------- 
+// Tcl Message: Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:18 . Memory (MB): peak = 2520.734 ; gain = 1011.527 ; free physical = 8116 ; free virtual = 25501 
+// Tcl Message: ---------------------------------------------------------------------------------  Report RTL Partitions:  +-+--------------+------------+----------+ | |RTL Partition |Replication |Instances | +-+--------------+------------+----------+ +-+--------------+------------+----------+ 
+// Tcl Message: No constraint files found. 
+// Tcl Message: --------------------------------------------------------------------------------- Start Timing Optimization --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished Timing Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:18 . Memory (MB): peak = 2520.734 ; gain = 1011.527 ; free physical = 8116 ; free virtual = 25501 
+// Tcl Message: ---------------------------------------------------------------------------------  Report RTL Partitions:  +-+--------------+------------+----------+ | |RTL Partition |Replication |Instances | +-+--------------+------------+----------+ +-+--------------+------------+----------+ --------------------------------------------------------------------------------- Start Technology Mapping --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished Technology Mapping : Time (s): cpu = 00:00:13 ; elapsed = 00:00:18 . Memory (MB): peak = 2520.734 ; gain = 1011.527 ; free physical = 8117 ; free virtual = 25502 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Finished IO Insertion : Time (s): cpu = 00:00:15 ; elapsed = 00:00:21 . Memory (MB): peak = 2520.734 ; gain = 1011.527 ; free physical = 8117 ; free virtual = 25502 
+// Tcl Message: --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- Start Renaming Generated Instances --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished Renaming Generated Instances : Time (s): cpu = 00:00:15 ; elapsed = 00:00:21 . Memory (MB): peak = 2520.734 ; gain = 1011.527 ; free physical = 8117 ; free virtual = 25502 
+// Tcl Message: Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:15 ; elapsed = 00:00:21 . Memory (MB): peak = 2520.734 ; gain = 1011.527 ; free physical = 8117 ; free virtual = 25502 
+// Tcl Message: --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- Start Renaming Generated Ports --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished Renaming Generated Ports : Time (s): cpu = 00:00:15 ; elapsed = 00:00:21 . Memory (MB): peak = 2520.734 ; gain = 1011.527 ; free physical = 8117 ; free virtual = 25502 
+// Tcl Message: --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- Start Handling Custom Attributes --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:21 . Memory (MB): peak = 2520.734 ; gain = 1011.527 ; free physical = 8117 ; free virtual = 25502 
+// Tcl Message: --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- Start Renaming Generated Nets --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished Renaming Generated Nets : Time (s): cpu = 00:00:15 ; elapsed = 00:00:21 . Memory (MB): peak = 2520.734 ; gain = 1011.527 ; free physical = 8117 ; free virtual = 25502 
+// Tcl Message: --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- Start Writing Synthesis Report ---------------------------------------------------------------------------------  Report BlackBoxes:  +-+--------------+----------+ | |BlackBox name |Instances | +-+--------------+----------+ +-+--------------+----------+ 
+// Tcl Message:  Report Cell Usage:  +------+------+------+ |      |Cell  |Count | +------+------+------+ |1     |BUFG  |     1| |2     |LUT1  |     2| |3     |LUT2  |     2| |4     |LUT3  |     3| |5     |LUT4  |     3| |6     |LUT5  |    17| |7     |LUT6  |   168| |8     |MUXF7 |    32| |9     |FDRE  |   522| |10    |IBUF  |    36| |11    |OBUF  |    34| +------+------+------+ 
+// Tcl Message:  Report Instance Areas:  +------+---------+-------+------+ |      |Instance |Module |Cells | +------+---------+-------+------+ |1     |top      |       |   820| +------+---------+-------+------+ --------------------------------------------------------------------------------- 
+// Tcl Message: Finished Writing Synthesis Report : Time (s): cpu = 00:00:15 ; elapsed = 00:00:21 . Memory (MB): peak = 2520.734 ; gain = 1011.527 ; free physical = 8117 ; free virtual = 25502 
+// Tcl Message: --------------------------------------------------------------------------------- Synthesis finished with 0 errors, 0 critical warnings and 1 warnings. Synthesis Optimization Runtime : Time (s): cpu = 00:00:15 ; elapsed = 00:00:21 . Memory (MB): peak = 2520.734 ; gain = 1011.527 ; free physical = 8123 ; free virtual = 25502 Synthesis Optimization Complete : Time (s): cpu = 00:00:15 ; elapsed = 00:00:21 . Memory (MB): peak = 2520.742 ; gain = 1011.527 ; free physical = 8123 ; free virtual = 25502 
+// [GUI Memory]: 175 MB (+16214kb) [00:00:07]
+// TclEventType: START_PROGRESS_DIALOG
+// Device view-level: 0.0
+// bB (cr):  Sourcing Tcl script 'synth.tcl' : addNotify
+// TclEventType: SHOW_SCHEMATIC
+// Schematic: addNotify
+// TclEventType: STOP_PROGRESS_DIALOG
+// Tcl Message: # show_schematic [get_nets] 
+dismissDialog("Sourcing Tcl script 'synth.tcl'"); // bB (cr)
+// RouteApi::initDelayMediator elapsed time: 2s
+// RouteApi: Init Delay Mediator Swing Worker Finished
+// TclEventType: STOP_PROGRESS_DIALOG
+// Tcl Command: 'rdi::info_commands {get*}'
+// Tcl Command: 'rdi::info_commands {get_*}'
+// Tcl Command: 'rdi::info_commands {get_netd*}'
+// Tcl Command: 'rdi::info_commands {get_netds*}'
+// Tcl Command: 'rdi::info_commands {get_net*}'
+// Tcl Command: 'rdi::info_commands {get_netd*}'
+// Tcl Command: 'rdi::info_commands {get_nets*}'
+setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "get_nets", true); // aF (ac, cr)
+// Tcl Command: 'get_nets'
+// Tcl Command: 'get_nets'
+// Tcl Message: get_nets 
+// Tcl Command: 'rdi::info_commands {re*}'
+// Tcl Command: 'rdi::info_commands {rea*}'
+// Tcl Command: 'rdi::info_commands {read*}'
+// Tcl Command: 'rdi::info_commands {read_*}'
+// Tcl Command: 'rdi::info_commands {read_s*}'
+// Tcl Command: 'rdi::info_commands {read_sche*}'
+// Tcl Command: 'rdi::info_commands {read_sche*}'
+// Elapsed time: 18 seconds
+setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "read_schematic"); // aF (ac, cr)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 161, 143); // dT (af, cr)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 161, 143, false, false, false, false, true); // dT (af, cr) - Double Click
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 161, 143); // dT (af, cr)
+applyEnter(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "read_schematic clk_i"); // aF (ac, cr)
+// Tcl Command: 'read_schematic clk_i'
+// Tcl Command: 'read_schematic clk_i'
+// Tcl Message: read_schematic clk_i 
+// Tcl Message: ERROR: [Vivado 12-3273] '/customdevs/verilog/fifo_sync.github/vivado/synth/clk_i' file not found. 
+// Tcl Command: 'rdi::info_commands {s*}'
+// Tcl Command: 'rdi::info_commands {show*}'
+// Tcl Command: 'rdi::info_commands {sho*}'
+// Tcl Command: 'rdi::info_commands {show*}'
+// Tcl Command: 'rdi::info_commands {show_*}'
+// Tcl Command: 'rdi::info_commands {show_s*}'
+// Tcl Command: 'rdi::info_commands {show_schema*}'
+// Tcl Command: 'rdi::info_commands {show_schema*}'
+// Elapsed time: 23 seconds
+setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "show_schematic"); // aF (ac, cr)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 650, 115); // dT (af, cr)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 650, 115, false, false, false, false, true); // dT (af, cr) - Double Click
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 734, 110); // dT (af, cr)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 803, 99); // dT (af, cr)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 823, 108); // dT (af, cr)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 680, 119); // dT (af, cr)
+selectCodeEditor(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, 189, 109); // dT (af, cr)
+typeControlKey(RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR, "RDIResource.TclConsoleView_TCL_CONSOLE_CODE_EDITOR", 'c'); // dT (af, cr)
+setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "show_schematic clk_i_IBUF", true); // aF (ac, cr)
+// Tcl Command: 'show_schematic clk_i_IBUF'
+// Tcl Command: 'show_schematic clk_i_IBUF'
+// Tcl Message: show_schematic clk_i_IBUF 
+// Tcl Message: ERROR: [Common 17-161] Invalid option value 'clk_i_IBUF' specified for 'objects'. 
+// Tcl Command: 'rdi::info_commands {show_s*}'
+// Tcl Command: 'rdi::info_commands {show_sp*}'
+// Tcl Command: 'rdi::info_commands {show_*}'
+// Tcl Command: 'rdi::info_commands {show_p*}'
+// Tcl Command: 'rdi::info_commands {show_pn*}'
+// Tcl Command: 'rdi::info_commands {show_*}'
+// Tcl Command: 'rdi::info_commands {show_o*}'
+// Tcl Command: 'rdi::info_commands {show_ob*}'
+setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "show_objects  clk_i_IBUF", true); // aF (ac, cr)
+// Tcl Command: 'show_objects  clk_i_IBUF'
+// Tcl Command: 'show_objects  clk_i_IBUF'
+// Tcl Message: show_objects  clk_i_IBUF 
+// Tcl Message: ERROR: [Common 17-161] Invalid option value 'clk_i_IBUF' specified for 'objects'. 
+setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "show_schematic [clk_i_IBUF]", true); // aF (ac, cr)
+// Tcl Command: 'show_schematic [clk_i_IBUF]'
+// Tcl Command: 'show_schematic [clk_i_IBUF]'
+// Tcl Message: show_schematic [clk_i_IBUF] 
+// Tcl Message: invalid command name "clk_i_IBUF" 
+// Tcl Command: 'rdi::info_commands {clk_i_IBUF*}'
+// Tcl Command: 'rdi::info_commands {get*}'
+// Tcl Command: 'rdi::info_commands {get_*}'
+setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "show_schematic [get_nets clk_i_IBUF]", true); // aF (ac, cr)
+// Tcl Command: 'show_schematic [get_nets clk_i_IBUF]'
+// Tcl Command: 'show_schematic [get_nets clk_i_IBUF]'
+// TclEventType: SHOW_SCHEMATIC
+// Schematic: addNotify
+// Tcl Message: show_schematic [get_nets clk_i_IBUF] 

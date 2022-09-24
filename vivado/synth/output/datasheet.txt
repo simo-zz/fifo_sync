@@ -1,0 +1,14 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2019.2 (lin64) Build 2708876 Wed Nov  6 21:39:14 MST 2019
+| Date              : Sat Sep 24 17:51:53 2022
+| Host              : simodev running 64-bit Debian GNU/Linux 10 (buster)
+| Command           : report_datasheet -file output/datasheet.txt
+| Design            : fifo_sync
+| Device            : xczu3eg-sfva625
+| Speed File        : -1  PRODUCTION 1.26 08-13-2019
+| Temperature Grade : I
+-----------------------------------------------------------------------------------------
+
+Data Sheet Report
+
