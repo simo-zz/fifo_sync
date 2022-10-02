@@ -1,4 +1,4 @@
-SRC_DIR = "../src/"
+SRC_DIR = "../../src/"
 VERILOG_SRC_DIR = $(SRC_DIR)"verilog"
 SYSTEM_VERILOG_SRC_DIR = $(SRC_DIR)"system_verilog"
 
